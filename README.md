@@ -42,15 +42,18 @@ tree -h -L 2
 # │   ├── [  35]  envs
 # │   ├── [ 248]  CHARM_scripts
 # │   ├── [3.1K]  CHARM.smk
-# │   ├── [ 152]  README.md
 # │   ├── [ 224]  rules
 # │   ├── [ 361]  runCHARM.sh
 # │   └── [ 20K]  stat.ipynb
 # |   ...
 # └── [  33]  Rawdata
-#     └── [  40]  P10001 -> ../../CHARM_test/Rawdata/P10001
+#     └── [  40]  R1P10013 -> ../../CHARM_test/Rawdata/R1P10013
 ```
+You can use the sampled data along with this repo(R1P10013small) for testing, but full data is recommand since structure reconsturction require much more Hi-C contacts. 
+
 2. Installation of environment
+
+Should take less than 1h to install the environment, depends on your internet speed.
 
 ```bash
 mamba create -n charm -c conda-forge -c bioconda python=3.8 snakemake=5.20.1 

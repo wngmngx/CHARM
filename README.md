@@ -78,6 +78,6 @@ cd CHARM_preprocess_pipeline; ./runCHARM.sh
 
     see analysis/stat.ipynb
 
-## analysis_and_plot_notebooks
+## CHARM_analysis
 
-analysis_and_plot_notebooks holds the python/R notebooks used in the analysis of the project.
+CHARM_analysis holds the python/R notebooks used in the analysis of the project.

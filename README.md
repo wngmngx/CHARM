@@ -30,7 +30,7 @@ This folder project contains two folders, and I will describe their respective u
 
 ## CHARM_preprocess_pipeline
 
-The CHARM_preprocess_pipeline contains a snakemake pipeline for pre-processing CHARM data.
+The CHARM_preprocess_pipeline provides a Snakemake workflow for pre-processing CHARM data. Using this workflow, we separate the raw sequencing output by modality and generate downstream-ready intermediates, including cell-by-gene RNA expression matrices (compatible with Seurat/Scanpy), fragment files carrying chromatin accessibility and histone-modification signals (compatible with Signac/ArchR), 4DN-standard Hi-C pairs files, and reconstructed single-cell 3D structures. The pipeline also produces basic QC summaries (via stat.ipynb)—such as sequencing depth, cell counts, and per-modality capture efficiency—to assess experimental performance.These results are listed in the “result” folder.
 
 ### Usage
 1. Place the Rawdata folder and the CHARM_preprocess_pipeline folder in the same directory.
@@ -80,4 +80,4 @@ cd CHARM_preprocess_pipeline; ./runCHARM.sh
 
 ## CHARM_analysis
 
-CHARM_analysis holds the python/R notebooks used in the analysis of the project.
+CHARM_analysis contains the Python and R notebooks used to generate the manuscript’s results and figures. Each notebook documents, step by step, how outputs from CHARM_preprocess_pipeline are imported by modality, quality-controlled, and analyzed, and how these analyses produce the statistics and visualizations reported in the main text and Supplementary Information.

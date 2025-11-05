@@ -16,7 +16,7 @@ Mouse embryonic stem cell (mESC) related data analysis code, primarily correspon
 - `2.4_bivalent_bins.ipynb` - Analysis of bivalent chromatin domains and their properties.
 - `2.5_ordermat_python.ipynb` - Python implementation for ordering and clustering chromatin interaction matrices, related to figure2.
 
-### Part 3: Validation and Clustering Analysis
+### Part 3: 3D structure Analysis
 - `3.1_validation.ipynb` - Comprehensive validation for 5kb-resolution reconsturcted 3D chromatin structure.
 - `3.2_describe.ipynb` - Auto/Cross correlation analysis for different chromatin features in 3D structure.
 - `3.3_cluster.ipynb` - DBSCAN clustering analysis of accessibility cluster.

@@ -1,0 +1,56 @@
+### INPUT DATA
+# Add your inputs here
+biosamplesTable: "/share/home/mwang/shared/mwang/CHARM-seq/ENCODE_rE2G/ABC-Enhancer-Gene-Prediction/config/config_charm.tsv"  # replace with your own config/config_biosamples.tsv
+
+### OUTPUT DATA
+results_dir: "/share/home/mwang/shared/mwang/CHARM-seq/ENCODE_rE2G/ABC-Enhancer-Gene-Prediction/results/"
+
+
+### REFERENCE FILES
+ref:
+        chrom_sizes: "/share/home/mwang/shared/mwang/CHARM-seq/ENCODE_rE2G/ABC-Enhancer-Gene-Prediction/input_data_charm/reference/mm10.chrom.sizes.tsv"
+        regions_blocklist: "/share/home/mwang/shared/mwang/CHARM-seq/ENCODE_rE2G/ABC-Enhancer-Gene-Prediction/input_data_charm/reference/mm10-blacklist.bed"
+        ubiquitous_genes: "/share/home/mwang/shared/mwang/CHARM-seq/ENCODE_rE2G/ABC-Enhancer-Gene-Prediction/input_data_charm/reference/mm10/ubiquitouslygenes.txt"
+        genes: "/share/home/mwang/shared/mwang/CHARM-seq/ENCODE_rE2G/ABC-Enhancer-Gene-Prediction/input_data_charm/reference/mm10/genes.bed"
+        genome_tss: "/share/home/mwang/shared/mwang/CHARM-seq/ENCODE_rE2G/ABC-Enhancer-Gene-Prediction/input_data_charm/reference/mm10/tss_500.bed"
+        qnorm: "/share/home/mwang/shared/mwang/CHARM-seq/ENCODE_rE2G/ABC-Enhancer-Gene-Prediction/reference/EnhancersQNormRef.K562.txt"
+        abc_thresholds: "/share/home/mwang/shared/mwang/CHARM-seq/ENCODE_rE2G/ABC-Enhancer-Gene-Prediction/reference/abc_thresholds.tsv"
+
+
+
+### RULE SPECIFIC PARAMS
+params_macs:
+        pval: 0.1
+        genome_size: mm  # shortcuts: hs: human ; mm: mice
+        threads: 10
+
+# These parameters are used to run the Run Candidate Regions portion of the abc code 
+params_candidate:
+        peakExtendFromSummit: 250
+        nStrongestPeaks: 150000
+
+# These parameters are used to run the Run Neighborhoods portion of the abc code
+params_neighborhoods:
+        # Recommended to keep as True. Setting to False leads will result in 
+        # different ABC scores that don't follow the pre-set ABC thresholds
+        use_qnorm: True  
+        
+# These parameters are used to run the Predictions portion of the abc code
+params_predict:
+        flags: "--scale_hic_using_powerlaw"
+        hic_gamma: 0.9425840730360168  # avg hic gamma
+        hic_scale: 5.062925806695797  # avg hic scale
+        hic_pseudocount_distance: 5000  # powerlaw at this distance is added to the contact for all predictions
+
+params_filter_predictions:
+        score_column: 'ABC.Score'
+        threshold: null  # null => Automatic determination based on input 
+        include_self_promoter: True
+        only_expressed_genes: False
+
+
+### INTERNAL USE ONLY
+
+# ABS path to prepend to reference and script files
+# Only relevant when using ABC as a submodule
+ABC_DIR_PATH: "/share/home/mwang/shared/mwang/CHARM-seq/ENCODE_rE2G/ABC-Enhancer-Gene-Prediction/"

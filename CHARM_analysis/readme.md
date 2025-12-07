@@ -56,5 +56,5 @@ Brain dataset related analysis code, primarily corresponding to **Main Figures 4
 - `4.7_shap_describe.ipynb` - SHAP (SHapley Additive exPlanations) analysis for model interpretability
 - `4.8_split_frag_by_subclass.py` - Split Li2021 fragments into subclass-specific files by mapping CellIDs to subclasses for downstream motif modeling.
 - `4.8_run_chrombpnet.sh` - Wrapper script to filter subclass fragments and launch ChromBPNet training with the appropriate genome, peaks, and bias models.
-- `4.9_compare_with_scarlink` - Compare CHARM regression model results with SCARlink predictions for validation and benchmarking.   
+- `4.9_compare_with_SCARlink.ipynb` - Compare CHARM regression model results with SCARlink predictions for validation and benchmarking.   
 - `4.10_compare_with_encode_re2g` - Compare CHARM regression model results with ENCODE_re2g model predictions for validation and benchmarking.

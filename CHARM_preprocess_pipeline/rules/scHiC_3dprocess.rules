@@ -30,7 +30,7 @@ rule hickit_clean3D:
         nodes = 1
     shell: """
     
-        python {input.charmtools} clean3 -r {input.dip_pairs} -i processed/{wildcards.sample}/3d_info/{wildcards.res}.{wildcards.rep}.3dg -o {output.clean}
+        python -m {input.charmtools} clean3 -r {input.dip_pairs} -i processed/{wildcards.sample}/3d_info/{wildcards.res}.{wildcards.rep}.3dg -o {output.clean}
         
         """
 
@@ -63,7 +63,7 @@ rule generate_cpg_CIF:
         cif="result/cif_cpg/{sample}.{res}.{rep}.cpg.cif",
     shell:"""
 
-        python {input.charmtools} mmcif -i {input.tdg} -o {output.cif} -b {input.cpg}  
+        python -m {input.charmtools} mmcif -i {input.tdg} -o {output.cif} -b {input.cpg}  
         
         """
 
